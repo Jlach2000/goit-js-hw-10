@@ -10,7 +10,6 @@ const refs = {
     countryList : document.querySelector('.country-list'),
 };
 
-const clearMarkup = ref => (ref.innerHTML = '');
 
 const inputHandler = e => {
     const textInput = e.target.value.trim();
@@ -39,7 +38,12 @@ fetchCountries(textInput)
 
 });
 };
-
+const clearMarkup = ref => {
+    // Dodajemy warunek sprawdzający czy ref istnieje, jeśli tak, czyszczenie innerHTML
+    if (ref) {
+        ref.innerHTML = '';
+    }
+};
 
 const renderMarkup = data => {
     if (data.length === 1) {
